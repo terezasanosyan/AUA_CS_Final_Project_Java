@@ -1,12 +1,12 @@
 package LivingBeings;
 
 public class Animals {
-	public int legs;
-	public int lengthOfLife;
-	public String type;
-	public String name;
-	public String sex;
-	public boolean isHuman;
+	private int legs;
+	private int lengthOfLife;
+	private String type;
+	private String name;
+	private String sex;
+	private boolean isHuman;
 
 	public Animals(int legs, int lengthOfLife, String type, String name, String sex, boolean isHuman) {
 		this.legs = legs;
@@ -17,10 +17,10 @@ public class Animals {
 		}
 		this.type = type;
 		this.name = name;
-		if(sex == "male" || sex == "female") {
+		if (sex == "male" || sex == "female") {
 			this.sex = sex;
 		} else {
-			useValidValue("sex");
+			useValidValue("sex, '" + sex + "' is invalid");
 		}
 		this.isHuman = isHuman;
 	}
@@ -36,7 +36,7 @@ public class Animals {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getSex() {
 		return sex;
 	}
@@ -44,8 +44,13 @@ public class Animals {
 	public String getType() {
 		return type;
 	}
-	
+
+	public boolean getIsHuman() {
+		return isHuman;
+	}
+
 	public static void useValidValue(String var) {
 		System.err.println("Please enter valid value for variable " + var);
+		return;
 	}
 }
